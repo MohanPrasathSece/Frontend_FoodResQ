@@ -28,11 +28,6 @@ import {
 } from '@chakra-ui/react';
 import { useAuth } from '../contexts/AuthContext';
 
-// set base URL for axios after imports
-axios.defaults.baseURL = 'http://localhost:5000';
-
-
-
 export default function VolunteerDashboard() {
   // color mode values
   const pageBg = useColorModeValue('gray.50','gray.800');
