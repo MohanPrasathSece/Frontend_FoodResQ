@@ -4,12 +4,14 @@ import axios from 'axios';
 import App from './App';
 
 // Configure axios baseURL: prioritize REACT_APP_API_URL, else use CRA proxy in dev, else fallback to Railway
-const envApiUrl = process.env.REACT_APP_API_URL;
-if (envApiUrl) {
-  axios.defaults.baseURL = envApiUrl;
-} else if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
+  // Dev: use proxy
   axios.defaults.baseURL = '';
+} else if (process.env.REACT_APP_API_URL) {
+  // Prod/Preview: use provided API URL
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 } else {
+  // Fallback: Railway public URL
   axios.defaults.baseURL = 'https://backendfoodresq-production.up.railway.app';
 }
 
