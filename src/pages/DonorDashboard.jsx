@@ -174,7 +174,7 @@ export default function DonorDashboard() {
 
   return (
     <Box py={10} px={{ base: 4, md: 8 }}
-       bgImage={`linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://tse4.mm.bing.net/th/id/OIP.1_gZNzA84TtC5LzPJmKSFgHaEY?cb=iwc1&rs=1&pid=ImgDetMain')`}
+       bgImage={`url('https://tse4.mm.bing.net/th/id/OIP.1_gZNzA84TtC5LzPJmKSFgHaEY?cb=iwc1&rs=1&pid=ImgDetMain')`}
        bgSize="cover"
        bgPosition="center"
      >
