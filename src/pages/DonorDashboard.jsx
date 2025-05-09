@@ -174,29 +174,18 @@ export default function DonorDashboard() {
 
   return (
     <Box
-      position="relative"
-      width="100%"
+      bgImage="url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')"
+      bgSize="cover"
+      bgPosition="center"
+      bgRepeat="no-repeat"
       minH="100vh"
-      overflow="hidden"
+      width="100%"
       py={{ base: 4, md: 10 }}
       px={{ base: 2, md: 8 }}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        bgImage: `url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')`,
-        bgSize: 'cover',
-        bgRepeat: 'no-repeat',
-        bgPosition: 'center',
-        zIndex: 0,
-      }}
     >
       <Box maxW={{ base: 'container.sm', md: 'container.xl' }} mx="auto" position="relative" zIndex={1} px={{ base: 2, md: 0 }}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={4} borderRadius="lg" boxShadow="md">
-          <Heading size="lg" color="var(--chakra-colors-green-700)">
+        <Box display="flex" flexDirection={{ base: 'column', md: 'row' }} justifyContent={{ base: 'center', md: 'space-between' }} alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={{ base: 2, md:4 }} borderRadius="lg" boxShadow="md">
+          <Heading size={{ base: 'md', md: 'lg' }} color="var(--chakra-colors-green-700)" textAlign="center" mb={{ base:2, md:0 }}>
             My Donations <Badge ml={2} colorScheme="green">{activeDonations.length}</Badge>
           </Heading>
           <Button

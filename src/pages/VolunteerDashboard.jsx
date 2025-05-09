@@ -172,30 +172,20 @@ export default function VolunteerDashboard() {
 
   return (
     <Box
-      py={{ base: 4, md: 10 }}
-      position="relative"
-      color={textColor}
+      bgImage="url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')"
+      bgSize="cover"
+      bgPosition="center"
+      filter="brightness(0.3)"
       minH="100vh"
-      _before={{
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        bgImage: `url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')`,
-        bgSize: 'cover',
-        bgPosition: 'center',
-        filter: 'brightness(0.3)',
-        zIndex: 0,
-      }}
+      color={textColor}
+      py={{ base: 4, md: 10 }}
     >
       <Container maxW={{ base: 'container.sm', md: '6xl' }} px={{ base: 2, md: 4 }} mx="auto" position="relative" zIndex={1}>
         <Stack spacing={8}>
           {/* Available Donations */}
           <Box p={{ base: 2, md: 4 }}>
-            <Box bg={containerBg} p={{ base: 2, md: 4 }} borderRadius="md" boxShadow="md" mb={5}>
-              <Heading size="lg">
+            <Box bg={containerBg} p={{ base: 2, md: 4 }} borderRadius="md" boxShadow="md" mb={5} textAlign="center">
+              <Heading size={{ base: 'md', md: 'lg' }}>
                 Find Food <Badge ml={2} colorScheme="blue">{availableDonations.length}</Badge>
               </Heading>
             </Box>
