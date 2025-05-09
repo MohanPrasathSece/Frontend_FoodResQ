@@ -18,11 +18,12 @@ export default function Help() {
   const handleChange = e =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async e => {
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const handleSubmit = async e => {
     e.preventDefault();
     try {
       // Use full API URL to bypass CRA proxy
-      const response = await axios.post('http://localhost:5000/api/help', form);
+      const response = await axios.post(`${API_URL}/api/help`, form);
       if (response.data.success) {
         toast({ title: 'Message sent', status: 'success' });
         setForm({ name: '', email: '', message: '' });
