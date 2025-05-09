@@ -188,7 +188,7 @@ export default function VolunteerDashboard() {
         bgImage: `url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')`,
         bgSize: 'cover',
         bgPosition: 'center',
-        opacity: 0.2,
+        opacity: 0.1,
         zIndex: 0,
       }}
     >
