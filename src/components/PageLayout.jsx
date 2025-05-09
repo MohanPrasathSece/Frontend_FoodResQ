@@ -2,8 +2,12 @@ import React from 'react';
 import { Box, Container, useColorModeValue } from '@chakra-ui/react';
 
 export default function PageLayout({ children, bg }) {
-  const pageBg = bg || useColorModeValue('gray.50', 'gray.800');
-  const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const defaultBg = useColorModeValue('gray.50', 'gray.800');
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const defaultTextColor = useColorModeValue('gray.800', 'whiteAlpha.900');
+  const pageBg = bg || defaultBg;
+  const textColor = defaultTextColor;
   return (
     <Box
       bg={pageBg}
