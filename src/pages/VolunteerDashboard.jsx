@@ -173,22 +173,23 @@ export default function VolunteerDashboard() {
   return (
     <Box
       position="relative"
-      py={{ base: 4, md: 10 }}
-      px={{ base: 2, md: 8 }}
+      bgImage="url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')"
+      bgSize="cover"
+      bgPosition="center"
       minH="100vh"
       width="100%"
+      py={{ base: 4, md: 10 }}
+      px={{ base: 2, md: 8 }}
       color={textColor}
-      _before={{
+      _after={{
         content: '""',
         position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%',
-        bgImage: `url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')`,
-        bgSize: 'cover',
-        bgPosition: 'center',
-        opacity: 0.1,
+        bg: 'black',
+        opacity: 0.2,
         zIndex: 0,
       }}
     >
@@ -219,27 +220,32 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
-                            boxSize={{ base: '80px', md: '100px' }}
+                            boxSize={{ base: '100px', md: '150px' }}
                             objectFit="cover"
                             mb={3}
+                            borderRadius="md"
+                            mx="auto"
                           />
                         ) : donation.image?.data ? (
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
-                            boxSize={{ base: '80px', md: '100px' }}
+                            boxSize={{ base: '100px', md: '150px' }}
                             objectFit="cover"
                             mb={3}
+                            borderRadius="md"
+                            mx="auto"
                           />
                         ) : (
                           <Box
-                            boxSize={{ base: '80px', md: '100px' }}
+                            boxSize={{ base: '100px', md: '150px' }}
                             bg="gray.200"
                             mb={3}
                             display="flex"
                             alignItems="center"
                             justifyContent="center"
                             borderRadius="md"
+                            mx="auto"
                           >
                             <Text color="gray.500">No Image</Text>
                           </Box>
