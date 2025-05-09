@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 import { Box, Container, Heading, FormControl, FormLabel, Input, Button, Avatar, useToast, useColorModeValue, Text } from '@chakra-ui/react';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -19,7 +20,7 @@ export default function Profile() {
       setLoading(true);
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get('/api/profile', {
+        const res = await axios.get(`${API_BASE_URL}/api/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const profile = res.data;
@@ -60,7 +61,7 @@ export default function Profile() {
     if (file) formData.append('avatar', file);
     const token = localStorage.getItem('token');
     try {
-      await axios.post('/api/profile', formData, {
+      await axios.post(`${API_BASE_URL}/api/profile`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -68,7 +69,7 @@ export default function Profile() {
       });
       toast({ title:'Profile updated', status:'success' });
       // Refetch profile after save
-      const res = await axios.get('/api/profile', {
+      const res = await axios.get(`${API_BASE_URL}/api/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const profile = res.data;
