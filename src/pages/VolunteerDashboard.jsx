@@ -203,7 +203,10 @@ export default function VolunteerDashboard() {
               <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 3 }} spacing={8}>
                 {availableDonations.filter(d => d.status !== 'claimed').map((donation) => (
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
-                    <CardHeader><Heading size="sm">{donation.foodName}</Heading></CardHeader>
+                    <CardHeader display="flex" justifyContent="space-between" alignItems="center">
+                      <Heading size="sm">{donation.foodName}</Heading>
+                      <Badge colorScheme="purple">{donation.quantity} {donation.unit}</Badge>
+                    </CardHeader>
                     <CardBody>
                       {donation.imageUrl ? (
                         <Image
@@ -275,7 +278,10 @@ export default function VolunteerDashboard() {
               <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 3 }} spacing={8}>
                 {historyDonations.filter(d => d.status === 'claimed').map((donation) => (
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
-                    <CardHeader><Heading size="sm">{donation.foodName}</Heading></CardHeader>
+                    <CardHeader display="flex" justifyContent="space-between" alignItems="center">
+                      <Heading size="sm">{donation.foodName}</Heading>
+                      <Badge colorScheme="purple">{donation.quantity} {donation.unit}</Badge>
+                    </CardHeader>
                     <CardBody>
                       {donation.imageUrl ? (
                         <Image
