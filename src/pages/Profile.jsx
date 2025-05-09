@@ -102,24 +102,24 @@ export default function Profile() {
         <Heading mb={4} color="green.500">Profile Settings</Heading>
         <form onSubmit={handleSubmit}>
           <Avatar src={form.avatar} size="xl" mb={4} />
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>Profile Picture</FormLabel>
             <Input type="file" accept="image/*" onChange={handleFileChange} />
           </FormControl>
           {/* Address Fields */}
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>Street</FormLabel>
             <Input name="street" value={form.street} onChange={e => setForm({...form, street: e.target.value})} />
           </FormControl>
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>City</FormLabel>
             <Input name="city" value={form.city} onChange={e => setForm({...form, city: e.target.value})} />
           </FormControl>
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>State</FormLabel>
             <Input name="state" value={form.state} onChange={e => setForm({...form, state: e.target.value})} />
           </FormControl>
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>Zip Code</FormLabel>
             <Input name="zipCode" value={form.zipCode} onChange={e => setForm({...form, zipCode: e.target.value})} />
           </FormControl>
@@ -131,7 +131,7 @@ export default function Profile() {
             <FormLabel>Email</FormLabel>
             <Input name="email" type="email" value={form.email} onChange={handleChange} />
           </FormControl>
-          <FormControl mb={4}>
+          <FormControl mb={4} isRequired>
             <FormLabel>Phone</FormLabel>
             <Input name="phone" value={form.phone} onChange={handleChange} />
           </FormControl>
