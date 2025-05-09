@@ -205,45 +205,46 @@ export default function VolunteerDashboard() {
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
                     <CardHeader display="flex" justifyContent="space-between" alignItems="center">
                       <Heading size="sm">{donation.foodName}</Heading>
-                      <Badge colorScheme="purple">{donation.quantity} {donation.unit}</Badge>
                     </CardHeader>
                     <CardBody>
-                      {donation.imageUrl ? (
-                        <Image
-                          src={
-                            donation.imageUrl.startsWith('data:')
-                              ? donation.imageUrl
-                              : `http://localhost:5000${donation.imageUrl}`
-                          }
-                          alt={donation.foodName}
-                          boxSize="150px"
-                          objectFit="cover"
-                          mb={3}
-                        />
-                      ) : donation.image?.data ? (
-                        <Image
-                          src={`data:${donation.image.contentType};base64,${donation.image.data}`}
-                          alt={donation.foodName}
-                          boxSize="150px"
-                          objectFit="cover"
-                          mb={3}
-                        />
-                      ) : (
-                        <Box
-                          boxSize="150px"
-                          bg="gray.200"
-                          mb={3}
-                          display="flex"
-                          alignItems="center"
-                          justifyContent="center"
-                          borderRadius="md"
-                        >
-                          <Text color="gray.500">No Image</Text>
-                        </Box>
-                      )}
+                      <Box position="relative" width="100%">
+                        <Badge position="absolute" top={2} right={2} colorScheme="purple" zIndex={1}>{donation.quantity} {donation.unit}</Badge>
+                        {donation.imageUrl ? (
+                          <Image
+                            src={
+                              donation.imageUrl.startsWith('data:')
+                                ? donation.imageUrl
+                                : `${axios.defaults.baseURL}${donation.imageUrl}`
+                            }
+                            alt={donation.foodName}
+                            boxSize="150px"
+                            objectFit="cover"
+                            mb={3}
+                          />
+                        ) : donation.image?.data ? (
+                          <Image
+                            src={`data:${donation.image.contentType};base64,${donation.image.data}`}
+                            alt={donation.foodName}
+                            boxSize="150px"
+                            objectFit="cover"
+                            mb={3}
+                          />
+                        ) : (
+                          <Box
+                            boxSize="150px"
+                            bg="gray.200"
+                            mb={3}
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            borderRadius="md"
+                          >
+                            <Text color="gray.500">No Image</Text>
+                          </Box>
+                        )}
+                      </Box>
                       <Box p={3}>
                         <Text fontSize="sm" noOfLines={2}>{donation.description}</Text>
-                        
                       </Box>
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>
@@ -280,45 +281,46 @@ export default function VolunteerDashboard() {
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
                     <CardHeader display="flex" justifyContent="space-between" alignItems="center">
                       <Heading size="sm">{donation.foodName}</Heading>
-                      <Badge colorScheme="purple">{donation.quantity} {donation.unit}</Badge>
                     </CardHeader>
                     <CardBody>
-                      {donation.imageUrl ? (
-                        <Image
-                          src={
-                            donation.imageUrl.startsWith('data:')
-                              ? donation.imageUrl
-                              : `http://localhost:5000${donation.imageUrl}`
-                          }
-                          alt={donation.foodName}
-                          boxSize="150px"
-                          objectFit="cover"
-                          mb={3}
-                        />
-                      ) : donation.image?.data ? (
-                        <Image
-                          src={`data:${donation.image.contentType};base64,${donation.image.data}`}
-                          alt={donation.foodName}
-                          boxSize="150px"
-                          objectFit="cover"
-                          mb={3}
-                        />
-                      ) : (
-                        <Box
-                          boxSize="150px"
-                          bg="gray.200"
-                          mb={3}
-                          display="flex"
-                          alignItems="center"
-                          justifyContent="center"
-                          borderRadius="md"
-                        >
-                          <Text color="gray.500">No Image</Text>
-                        </Box>
-                      )}
+                      <Box position="relative" width="100%">
+                        <Badge position="absolute" top={2} right={2} colorScheme="purple" zIndex={1}>{donation.quantity} {donation.unit}</Badge>
+                        {donation.imageUrl ? (
+                          <Image
+                            src={
+                              donation.imageUrl.startsWith('data:')
+                                ? donation.imageUrl
+                                : `${axios.defaults.baseURL}${donation.imageUrl}`
+                            }
+                            alt={donation.foodName}
+                            boxSize="150px"
+                            objectFit="cover"
+                            mb={3}
+                          />
+                        ) : donation.image?.data ? (
+                          <Image
+                            src={`data:${donation.image.contentType};base64,${donation.image.data}`}
+                            alt={donation.foodName}
+                            boxSize="150px"
+                            objectFit="cover"
+                            mb={3}
+                          />
+                        ) : (
+                          <Box
+                            boxSize="150px"
+                            bg="gray.200"
+                            mb={3}
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            borderRadius="md"
+                          >
+                            <Text color="gray.500">No Image</Text>
+                          </Box>
+                        )}
+                      </Box>
                       <Box p={3}>
                         <Text fontSize="sm" noOfLines={2}>{donation.description}</Text>
-                        
                       </Box>
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>

@@ -173,12 +173,25 @@ export default function DonorDashboard() {
   const activeDonations = donations.filter(d => d.status === 'available');
 
   return (
-    <Box py={10} px={{ base: 4, md: 8 }}
-       bgImage={`url('https://tse4.mm.bing.net/th/id/OIP.1_gZNzA84TtC5LzPJmKSFgHaEY?cb=iwc1&rs=1&pid=ImgDetMain')`}
-       bgSize="cover"
-       bgPosition="center"
-     >
-      <Box maxW="container.xl" mx="auto">
+    <Box
+      py={10}
+      px={{ base: 4, md: 8 }}
+      position="relative"
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        bgImage: `url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')`,
+        bgSize: 'cover',
+        bgPosition: 'center',
+        filter: 'blur(4px)',
+        zIndex: 0,
+      }}
+    >
+      <Box maxW="container.xl" mx="auto" position="relative" zIndex={1}>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={4} borderRadius="lg" boxShadow="md">
           <Heading size="lg" color="var(--chakra-colors-green-700)">
             My Donations <Badge ml={2} colorScheme="green">{activeDonations.length}</Badge>
