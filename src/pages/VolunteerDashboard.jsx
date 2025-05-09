@@ -240,7 +240,7 @@ export default function VolunteerDashboard() {
                       )}
                       <Box p={3}>
                         <Text fontSize="sm" noOfLines={2}>{donation.description}</Text>
-                        <Text fontSize="sm"><strong>Quantity:</strong> {donation.quantity} {donation.unit}</Text>
+                        
                       </Box>
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>
@@ -312,7 +312,7 @@ export default function VolunteerDashboard() {
                       )}
                       <Box p={3}>
                         <Text fontSize="sm" noOfLines={2}>{donation.description}</Text>
-                        <Text fontSize="sm"><strong>Quantity:</strong> {donation.quantity} {donation.unit}</Text>
+                        
                       </Box>
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>
