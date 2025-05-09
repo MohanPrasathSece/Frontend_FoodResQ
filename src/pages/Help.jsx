@@ -43,8 +43,8 @@ const handleSubmit = async e => {
   };
 
   return (
-    <Box py={{ base: 4, md: 10 }} bg={pageBg}>
-      <Container maxW={{ base: 'sm', md: 'lg' }} bg={containerBg} p={{ base: 4, md: 8 }} rounded="md" boxShadow="md" color={textColor}>
+    <Box py={{ base: 4, md: 10 }} px={{ base: 2, md: 8 }} bg={pageBg}>
+      <Container maxW={{ base: 'full', sm: 'sm', md: 'lg' }} px={{ base: 2, md: 4 }} bg={containerBg} p={{ base: 4, md: 8 }} rounded="md" boxShadow="md" color={textColor}>
         <Heading mb={6} textAlign="center" color="green.500">
           Contact Us
         </Heading>

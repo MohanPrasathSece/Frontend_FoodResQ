@@ -25,8 +25,8 @@ export default function Landing() {
   if (user) return <Navigate to="/home" replace />;
 
   return (
-    <Box bg="green.50" minH="100vh">
-      <Container maxW={{ base: 'sm', md: '4xl', xl: '6xl' }} pt={{ base: 4, md: 10 }}>
+    <Box bg="green.50" minH="100vh" px={{ base: 2, md: 8 }} py={{ base: 4, md: 10 }}>
+      <Container maxW={{ base: 'full', md: '4xl', xl: '6xl' }} px={{ base: 2, md: 0 }} pt={{ base: 4, md: 10 }}>
         <Flex justifyContent="flex-end" mb={4}></Flex>
         
         {/* Hero Section */}

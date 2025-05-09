@@ -172,7 +172,7 @@ export default function VolunteerDashboard() {
 
   return (
     <Box
-      py={10}
+      py={{ base: 4, md: 10 }}
       position="relative"
       color={textColor}
       minH="100vh"
@@ -190,17 +190,17 @@ export default function VolunteerDashboard() {
         zIndex: 0,
       }}
     >
-      <Container maxW="6xl" px={4} mx="auto" position="relative" zIndex={1}>
+      <Container maxW={{ base: 'container.sm', md: '6xl' }} px={{ base: 2, md: 4 }} mx="auto" position="relative" zIndex={1}>
         <Stack spacing={8}>
           {/* Available Donations */}
-          <Box p={4}>
-            <Box bg={containerBg} p={4} borderRadius="md" boxShadow="md" mb={5}>
+          <Box p={{ base: 2, md: 4 }}>
+            <Box bg={containerBg} p={{ base: 2, md: 4 }} borderRadius="md" boxShadow="md" mb={5}>
               <Heading size="lg">
                 Find Food <Badge ml={2} colorScheme="blue">{availableDonations.length}</Badge>
               </Heading>
             </Box>
             {availableDonations.length > 0 ? (
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 3 }} spacing={8}>
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={{ base: 4, md: 8 }}>
                 {availableDonations.filter(d => d.status !== 'claimed').map((donation) => (
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
                     <CardHeader display="flex" justifyContent="space-between" alignItems="center">
@@ -272,11 +272,11 @@ export default function VolunteerDashboard() {
 
           {/* Claimed by Me */}
           {historyDonations.filter(d => d.status === 'claimed').length > 0 && (
-            <Box bg="green.50" p={4} borderRadius="md" boxShadow="sm">
+            <Box bg="green.50" p={{ base: 2, md: 4 }} borderRadius="md" boxShadow="sm">
               <Heading size="md" mb={4} color="green.700">
                 Pending Delivery <Badge ml={2} colorScheme="green">{historyDonations.filter(d => d.status === 'claimed').length}</Badge>
               </Heading>
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 3 }} spacing={8}>
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={{ base: 4, md: 8 }}>
                 {historyDonations.filter(d => d.status === 'claimed').map((donation) => (
                   <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
                     <CardHeader display="flex" justifyContent="space-between" alignItems="center">

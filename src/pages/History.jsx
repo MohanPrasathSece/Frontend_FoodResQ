@@ -52,12 +52,12 @@ export default function History() {
   }
 
   return (
-    <Box color={textColor} minH="100vh" px={8} py={6} bg={pageBg}>
+    <Box color={textColor} minH="100vh" px={{ base: 2, md: 8 }} py={{ base: 4, md: 6 }} bg={pageBg}>
       {Object.entries(grouped).length > 0 ? (
         Object.entries(grouped).map(([date, list]) => (
-          <Container key={date} maxW="container.lg" bg={sectionBg} p={6} rounded="lg" mb={6} borderWidth="1px" borderColor={borderColor} boxShadow="md">
+          <Container key={date} maxW={{ base: 'full', md: 'container.lg' }} bg={sectionBg} p={{ base: 4, md: 6 }} rounded="lg" mb={6} borderWidth="1px" borderColor={borderColor} boxShadow="md">
             <Heading size="lg" mb={4} color="teal.500">{date}</Heading>
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={6}>
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={{ base: 4, md: 6 }}>
               {list.map(d => (
                 <Box key={d._id} bg={cardBg} p={4} rounded="md" boxShadow="sm" borderLeftWidth="4px" borderLeftColor={d.status === 'completed' ? 'green.400' : 'red.400'}>
                   <Image src={d.imageUrl} alt={d.foodName} boxSize="60px" objectFit="cover" mb={2} rounded="sm" />

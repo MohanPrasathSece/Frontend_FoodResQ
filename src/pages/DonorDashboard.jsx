@@ -175,11 +175,11 @@ export default function DonorDashboard() {
   return (
     <Box
       position="relative"
-      width="100vw"
-      height="100vh"
+      width="100%"
+      minH="100vh"
       overflow="hidden"
-      py={10}
-      px={{ base: 4, md: 8 }}
+      py={{ base: 4, md: 10 }}
+      px={{ base: 2, md: 8 }}
       _before={{
         content: '""',
         position: 'absolute',
@@ -194,7 +194,7 @@ export default function DonorDashboard() {
         zIndex: 0,
       }}
     >
-      <Box maxW="container.xl" mx="auto" position="relative" zIndex={1}>
+      <Box maxW={{ base: 'container.sm', md: 'container.xl' }} mx="auto" position="relative" zIndex={1} px={{ base: 2, md: 0 }}>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={4} borderRadius="lg" boxShadow="md">
           <Heading size="lg" color="var(--chakra-colors-green-700)">
             My Donations <Badge ml={2} colorScheme="green">{activeDonations.length}</Badge>
