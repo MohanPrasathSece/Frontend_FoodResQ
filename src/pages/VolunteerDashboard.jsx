@@ -175,7 +175,7 @@ export default function VolunteerDashboard() {
       bgImage="url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')"
       bgSize="cover"
       bgPosition="center"
-      filter="brightness(0.3)"
+      // removed brightness filter to keep content colors vivid
       minH="100vh"
       color={textColor}
       py={{ base: 4, md: 10 }}
