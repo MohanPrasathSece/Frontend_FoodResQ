@@ -202,7 +202,7 @@ export default function VolunteerDashboard() {
             {availableDonations.length > 0 ? (
               <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={{ base: 4, md: 8 }}>
                 {availableDonations.filter(d => d.status !== 'claimed').map((donation) => (
-                  <Card key={donation._id} p={4} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
+                  <Card key={donation._id} p={{ base: 2, md: 4 }} boxShadow="md" _hover={{ transform: 'translateY(-4px)' }} transition="0.2s">
                     <CardHeader display="flex" justifyContent="space-between" alignItems="center">
                       <Heading size="sm">{donation.foodName}</Heading>
                     </CardHeader>
@@ -217,7 +217,7 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
-                            boxSize="150px"
+                            boxSize={{ base: '100px', md: '150px' }}
                             objectFit="cover"
                             mb={3}
                           />
@@ -225,13 +225,13 @@ export default function VolunteerDashboard() {
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
-                            boxSize="150px"
+                            boxSize={{ base: '100px', md: '150px' }}
                             objectFit="cover"
                             mb={3}
                           />
                         ) : (
                           <Box
-                            boxSize="150px"
+                            boxSize={{ base: '100px', md: '150px' }}
                             bg="gray.200"
                             mb={3}
                             display="flex"
