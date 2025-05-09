@@ -174,11 +174,11 @@ export default function DonorDashboard() {
 
   return (
     <Box py={10} px={{ base: 4, md: 8 }}
-      bgImage={`linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://thumbs.dreamstime.com/z/indian-children-beach-goa-india-november-unidentified-playing-157502713.jpg')`}
-      bgSize="cover"
-      bgPosition="center"
-    >
-      <Box maxW="container.xl" mx="auto" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://tse4.mm.bing.net/th/id/OIP.1_gZNzA84TtC5LzPJmKSFgHaEY?cb=iwc1&rs=1&pid=ImgDetMain')`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
+       bgImage={`linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://tse4.mm.bing.net/th/id/OIP.1_gZNzA84TtC5LzPJmKSFgHaEY?cb=iwc1&rs=1&pid=ImgDetMain')`}
+       bgSize="cover"
+       bgPosition="center"
+     >
+      <Box maxW="container.xl" mx="auto">
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={4} borderRadius="lg" boxShadow="md">
           <Heading size="lg" color="var(--chakra-colors-green-700)">
             My Donations <Badge ml={2} colorScheme="green">{activeDonations.length}</Badge>
