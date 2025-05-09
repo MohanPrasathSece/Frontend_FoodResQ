@@ -187,7 +187,6 @@ export default function DonorDashboard() {
         bgImage: `url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')`,
         bgSize: 'cover',
         bgPosition: 'center',
-        filter: 'blur(4px)',
         zIndex: 0,
       }}
     >
