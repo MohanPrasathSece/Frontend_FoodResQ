@@ -175,17 +175,17 @@ export default function DonorDashboard() {
   return (
     <Box
       position="relative"
-      w="full"
+      w="100vw"
+      h="100vh"
       minH="100vh"
-      py={{ base: 6, md: 10 }}
-      px={{ base: 4, md: 8 }}
+      overflow="hidden"
       _before={{
         content: '""',
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
+        width: '100vw',
+        height: '100vh',
         bgImage: `url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')`,
         bgSize: 'cover',
         bgRepeat: 'no-repeat',
