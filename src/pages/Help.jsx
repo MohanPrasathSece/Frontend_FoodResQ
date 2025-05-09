@@ -20,6 +20,7 @@ export default function Help() {
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const handleSubmit = async e => {
+    toast({ title: 'Debug', description: `API: ${API_URL}/api/help`, status: 'info', duration: 4000 });
     e.preventDefault();
     try {
       // Use full API URL to bypass CRA proxy
@@ -32,6 +33,11 @@ const handleSubmit = async e => {
       }
     } catch (err) {
       console.error('Help form error:', err);
+      if (err.response) {
+        toast({ title: 'Backend error', description: JSON.stringify(err.response.data), status: 'error', duration: 8000 });
+      } else if (err.request) {
+        toast({ title: 'No response from backend', description: err.message, status: 'error', duration: 8000 });
+      }
       toast({ title: 'Error', description: 'Could not send message', status: 'error' });
     }
   };
