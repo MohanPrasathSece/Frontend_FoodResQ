@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 import { Box, Container, Heading, FormControl, FormLabel, Input, Button, Avatar, useToast, useColorModeValue, Text } from '@chakra-ui/react';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -19,7 +20,7 @@ export default function Profile() {
       setLoading(true);
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get('/api/profile', {
+        const res = await axios.get(`${API_BASE_URL}/api/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const profile = res.data;
@@ -34,7 +35,7 @@ export default function Profile() {
           zipCode: profile.address?.zipCode || ''
         });
       } catch (err) {
-        console.error('Profile fetch error:', err.response?.status, err.response?.data, err);
+        console.error('Profile fetch error:', err);
         toast({ title:'Failed to fetch profile', status:'error' });
       } finally {
         setLoading(false);
@@ -47,11 +48,9 @@ export default function Profile() {
   const handleFileChange = e => setFile(e.target.files[0]);
 
   const handleSubmit = async e => {
-    console.log('Submitting profile to', '/api/profile');
     e.preventDefault();
     setSaving(true);
     const formData = new FormData();
-    // Only append non-empty fields
     if (form.name) formData.append('name', form.name);
     if (form.email) formData.append('email', form.email);
     if (form.phone) formData.append('phone', form.phone);
@@ -62,31 +61,27 @@ export default function Profile() {
     if (file) formData.append('avatar', file);
     const token = localStorage.getItem('token');
     try {
-      await axios.post('/api/profile', formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data'
-        }
+      await axios.post(`${API_BASE_URL}/api/profile`, formData, {
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       });
       toast({ title:'Profile updated', status:'success' });
       // Refetch profile after save
-      console.log('Re-fetching profile from', '/api/profile');
-      const res = await axios.get('/api/profile', {
+      const res = await axios.get(`${API_BASE_URL}/api/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      const profile = res.data;
+      const updated = res.data;
       setForm({
-        name: profile.name || '',
-        email: profile.email || '',
-        phone: profile.phone || '',
-        avatar: profile.avatar || '',
-        street: profile.address?.street || '',
-        city: profile.address?.city || '',
-        state: profile.address?.state || '',
-        zipCode: profile.address?.zipCode || ''
+        name: updated.name || '',
+        email: updated.email || '',
+        phone: updated.phone || '',
+        avatar: updated.avatar || '',
+        street: updated.address?.street || '',
+        city: updated.address?.city || '',
+        state: updated.address?.state || '',
+        zipCode: updated.address?.zipCode || ''
       });
     } catch (err) {
-      console.error('Profile update error:', err.response?.status, err.response?.data, err);
+      console.error('Profile update error:', err);
       toast({ title:'Error updating profile', description: err.response?.data?.message || 'Unknown error', status:'error' });
     } finally {
       setSaving(false);
