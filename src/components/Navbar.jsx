@@ -17,8 +17,7 @@ import {
   IconButton
 } from '@chakra-ui/react';
 // Use react-icons for theme icons
-import { FaMoon, FaSun } from 'react-icons/fa';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { FaMoon, FaSun, FaBars } from 'react-icons/fa';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
@@ -57,7 +56,7 @@ const Navbar = () => {
             ) : (
               <Flex alignItems='center'>
                 <Menu display={{ base: 'block', md: 'none' }}>
-                  <MenuButton as={IconButton} aria-label='Open menu' icon={<HamburgerIcon />} variant='outline' mr={2} />
+                  <MenuButton as={IconButton} aria-label='Open menu' icon={<FaBars />} variant='outline' mr={2} />
                   <MenuList>
                     <MenuItem as={RouterLink} to='/'>Home</MenuItem>
                     <MenuItem as={RouterLink} to={`/${user.role}/dashboard`}>{user.role === 'donor' ? 'My Donations' : 'Available Donations'}</MenuItem>
