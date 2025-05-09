@@ -220,7 +220,7 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
-                            boxSize={{ base: '100px', md: '150px' }}
+                            boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
                             borderRadius="md"
@@ -230,7 +230,7 @@ export default function VolunteerDashboard() {
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
-                            boxSize={{ base: '100px', md: '150px' }}
+                            boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
                             borderRadius="md"
@@ -238,7 +238,7 @@ export default function VolunteerDashboard() {
                           />
                         ) : (
                           <Box
-                            boxSize={{ base: '100px', md: '150px' }}
+                            boxSize={{ base: '80px', md: '120px' }}
                             bg="gray.200"
                             mb={3}
                             display="flex"
@@ -302,7 +302,7 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
-                            boxSize="150px"
+                            boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
                           />
@@ -310,13 +310,13 @@ export default function VolunteerDashboard() {
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
-                            boxSize="150px"
+                            boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
                           />
                         ) : (
                           <Box
-                            boxSize="150px"
+                            boxSize={{ base: '80px', md: '120px' }}
                             bg="gray.200"
                             mb={3}
                             display="flex"
