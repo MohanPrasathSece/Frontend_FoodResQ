@@ -175,17 +175,18 @@ export default function DonorDashboard() {
   return (
     <Box
       position="relative"
-      w="100vw"
-      h="100vh"
-      minH="100vh"
+      width="100vw"
+      height="100vh"
       overflow="hidden"
+      py={10}
+      px={{ base: 4, md: 8 }}
       _before={{
         content: '""',
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         bgImage: `url('https://wallpapercrafter.com/desktop2/860118-sunset-children-India-silhouette-rice-field-Andhra.jpg')`,
         bgSize: 'cover',
         bgRepeat: 'no-repeat',
@@ -194,18 +195,16 @@ export default function DonorDashboard() {
       }}
     >
       <Box maxW="container.xl" mx="auto" position="relative" zIndex={1}>
-        <Box display="flex" flexDir={{ base: 'column', md: 'row' }} justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={{ base: 3, md: 4 }} borderRadius="lg" boxShadow="md">
+        <Box display="flex" justifyContent="space-between" alignItems="center" mb={5} bg="var(--chakra-colors-green-50)" p={4} borderRadius="lg" boxShadow="md">
           <Heading size="lg" color="var(--chakra-colors-green-700)">
             My Donations <Badge ml={2} colorScheme="green">{activeDonations.length}</Badge>
           </Heading>
           <Button
-            mt={{ base: 2, md: 0 }}
-            w={{ base: 'full', md: 'auto' }}
             colorScheme="green"
             size="lg"
             fontWeight="bold"
-            px={{ base: 4, md: 8 }}
-            py={{ base: 4, md: 6 }}
+            px={8}
+            py={6}
             borderRadius="full"
             boxShadow="lg"
             _hover={{ bg: 'var(--chakra-colors-green-400)', color: 'white' }}
@@ -223,7 +222,7 @@ export default function DonorDashboard() {
         </Box>
         <Box mt={6}>
           {activeDonations.length > 0 ? (
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={{ base: 2, md: 4 }}>
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 4 }} spacing={4}>
               {activeDonations.map(donation => (
                 <Card key={donation._id} overflow="hidden" boxShadow="md" borderRadius="md" _hover={{ transform: 'scale(1.02)', boxShadow: 'lg', transition: '0.2s' }}>
                   <Box position="relative" width="100%">

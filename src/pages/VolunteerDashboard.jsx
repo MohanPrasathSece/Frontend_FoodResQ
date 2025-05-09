@@ -172,19 +172,17 @@ export default function VolunteerDashboard() {
 
   return (
     <Box
+      py={10}
       position="relative"
-      w="100vw"
-      h="100vh"
-      minH="100vh"
       color={textColor}
-      overflow="hidden"
+      minH="100vh"
       _before={{
         content: '""',
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         bgImage: `url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')`,
         bgSize: 'cover',
         bgPosition: 'center',

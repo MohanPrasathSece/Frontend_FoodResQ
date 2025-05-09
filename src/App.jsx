@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import theme from './theme'; // Assuming your custom theme is in a file named 'theme.js'
-import PageLayout from './components/PageLayout';
 
 // Components
 import Navbar from './components/Navbar';
@@ -40,53 +39,51 @@ function App() {
       <AuthProvider>
         <Router>
           <Navbar />
-          <PageLayout>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/home" element={
-                <ProtectedRoute>
-                  <AuthLanding />
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/home" element={
+              <ProtectedRoute>
+                <AuthLanding />
+              </ProtectedRoute>
+            } />
+            <Route
+              path="/donor/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={['donor']}>
+                  <DonorDashboard />
                 </ProtectedRoute>
-              } />
-              <Route
-                path="/donor/dashboard"
-                element={
-                  <ProtectedRoute allowedRoles={['donor']}>
-                    <DonorDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/volunteer/dashboard"
-                element={
-                  <ProtectedRoute allowedRoles={['volunteer']}>
-                    <VolunteerDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/dashboard"
-                element={
-                  <ProtectedRoute allowedRoles={['admin']}>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/help" element={<Help />} />
-              <Route path="/profile" element={
-                <ProtectedRoute>
-                  <Profile />
+              }
+            />
+            <Route
+              path="/volunteer/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={['volunteer']}>
+                  <VolunteerDashboard />
                 </ProtectedRoute>
-              } />
-              <Route path="/history" element={
-                <ProtectedRoute>
-                  <History />
+              }
+            />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminDashboard />
                 </ProtectedRoute>
-              } />
-            </Routes>
-          </PageLayout>
+              }
+            />
+            <Route path="/help" element={<Help />} />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            } />
+            <Route path="/history" element={
+              <ProtectedRoute>
+                <History />
+              </ProtectedRoute>
+            } />
+          </Routes>
         </Router>
       </AuthProvider>
     </ChakraProvider>
