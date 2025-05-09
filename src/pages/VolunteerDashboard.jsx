@@ -220,6 +220,7 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
+                            opacity={0.8}
                             boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
@@ -230,6 +231,7 @@ export default function VolunteerDashboard() {
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
+                            opacity={0.8}
                             boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
@@ -302,6 +304,7 @@ export default function VolunteerDashboard() {
                                 : `${axios.defaults.baseURL}${donation.imageUrl}`
                             }
                             alt={donation.foodName}
+                            opacity={0.8}
                             boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
@@ -310,6 +313,7 @@ export default function VolunteerDashboard() {
                           <Image
                             src={`data:${donation.image.contentType};base64,${donation.image.data}`}
                             alt={donation.foodName}
+                            opacity={0.8}
                             boxSize={{ base: '80px', md: '120px' }}
                             objectFit="cover"
                             mb={3}
