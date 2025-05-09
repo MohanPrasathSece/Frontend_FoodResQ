@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 // Use react-icons for theme icons
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
@@ -32,10 +33,10 @@ const Navbar = () => {
   };
 
   return (
-    <Box bg={bgColor} px={4} boxShadow='sm'>
-      <Flex h={16} alignItems='center' justifyContent='space-between'>
+    <Box bg={bgColor} px={{ base: 2, md: 4 }} py={{ base: 2, md: 0 }} boxShadow='sm'>
+      <Flex alignItems='center' justifyContent='space-between' py={{ base: 2, md: 0 }}>
         <Link as={RouterLink} to='/' _hover={{ textDecoration: 'none' }}>
-          <Text fontSize='2xl' fontWeight='extrabold' color='brand.500'>
+          <Text fontSize={{ base: 'lg', md: '2xl' }} fontWeight='extrabold' color='brand.500'>
             Food Rescue Network
           </Text>
         </Link>
@@ -49,13 +50,25 @@ const Navbar = () => {
               onClick={toggleColorMode}
             />
             {!user ? (
-              <>
+              <Stack direction='row' spacing={4} alignItems='center'>
                 <Button as={RouterLink} to='/login' variant='ghost' colorScheme='brand'>Login</Button>
                 <Button as={RouterLink} to='/register' colorScheme='brand'>Register</Button>
-              </>
+              </Stack>
             ) : (
-              <>
-                <Stack direction='row' spacing={4} alignItems='center'>
+              <Flex alignItems='center'>
+                <Menu display={{ base: 'block', md: 'none' }}>
+                  <MenuButton as={IconButton} aria-label='Open menu' icon={<HamburgerIcon />} variant='outline' mr={2} />
+                  <MenuList>
+                    <MenuItem as={RouterLink} to='/'>Home</MenuItem>
+                    <MenuItem as={RouterLink} to={`/${user.role}/dashboard`}>{user.role === 'donor' ? 'My Donations' : 'Available Donations'}</MenuItem>
+                    <MenuItem as={RouterLink} to='/history'>History</MenuItem>
+                    <MenuItem as={RouterLink} to='/profile'>Profile</MenuItem>
+                    <MenuItem as={RouterLink} to='/help'>Help</MenuItem>
+                    <MenuItem onClick={toggleColorMode}>Toggle Theme</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                  </MenuList>
+                </Menu>
+                <Stack direction='row' spacing={4} alignItems='center' display={{ base: 'none', md: 'flex' }}>
                   {/* Home link to landing page */}
                   <Button as={RouterLink} to='/' variant='ghost'>Home</Button>
                   <Button as={RouterLink} to={`/${user.role}/dashboard`} variant='ghost'>
@@ -66,7 +79,7 @@ const Navbar = () => {
                   <Button as={RouterLink} to='/help' variant='ghost'>Help</Button>
                   <Button onClick={handleLogout} variant='ghost'>Logout</Button>
                 </Stack>
-              </>
+              </Flex>
             )}
           </Stack>
         </Flex>
