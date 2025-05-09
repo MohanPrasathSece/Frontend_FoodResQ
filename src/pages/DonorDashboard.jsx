@@ -51,6 +51,7 @@ export default function DonorDashboard() {
     image: null
   });
   const [editingDonation, setEditingDonation] = useState(null);
+  const [editImageUrl, setEditImageUrl] = useState('');
   const { user } = useAuth();
   const toast = useToast();
 
@@ -95,7 +96,15 @@ export default function DonorDashboard() {
         }
       }));
     } else if (name === "image") {
-      setFormData(prev => ({ ...prev, image: e.target.files[0] }));
+      const file = e.target.files[0];
+      setFormData(prev => ({ ...prev, image: file }));
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => setEditImageUrl(reader.result);
+        reader.readAsDataURL(file);
+      } else {
+        setEditImageUrl('');
+      }
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -134,6 +143,7 @@ export default function DonorDashboard() {
         pickupAddress: { street: '', city: '', state: '', zipCode: '' }, image: null
       });
       setEditingDonation(null);
+      setEditImageUrl('');
     } catch (error) {
       console.error('Save donation error:', error.response?.data?.message || error.message);
       toast({ title: 'Error', description: error.response?.data?.message || 'Failed to save donation', status: 'error', duration: 5000, isClosable: true });
@@ -147,10 +157,11 @@ export default function DonorDashboard() {
       description: donation.description || '',
       quantity: donation.quantity || '',
       unit: donation.unit || '',
-      expirationDate: donation.expirationDate ? donation.expirationDate.substr(0, 10) : '',
+      expirationDate: donation.expirationDate ? new Date(donation.expirationDate).toISOString().slice(0,16) : '',
       pickupAddress: donation.pickupAddress || { street: '', city: '', state: '', zipCode: '' },
       image: null
     });
+    setEditImageUrl(donation.imageUrl || '');
     onOpen();
   };
 
@@ -277,6 +288,11 @@ export default function DonorDashboard() {
               <ModalCloseButton />
               <ModalBody>
                 <Stack spacing={4}>
+                  {editImageUrl && (
+                    <Box mb={4}>
+                      <Image src={editImageUrl} alt="Current image" boxSize="150px" objectFit="cover" />
+                    </Box>
+                  )}
                   <FormControl isRequired>
                     <FormLabel>Food Name</FormLabel>
                     <Input name="foodName" value={formData.foodName} onChange={handleChange} />

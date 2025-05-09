@@ -19,7 +19,7 @@ export default function Profile() {
       setLoading(true);
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get('/api/auth/profile', {
+        const res = await axios.get('/api/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         const profile = res.data;
@@ -60,7 +60,7 @@ export default function Profile() {
     if (file) formData.append('avatar', file);
     const token = localStorage.getItem('token');
     try {
-      await axios.patch('/api/auth/profile', formData, {
+      await axios.post('/api/profile', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -68,7 +68,7 @@ export default function Profile() {
       });
       toast({ title:'Profile updated', status:'success' });
       // Refetch profile after save
-      const res = await axios.get('/api/auth/profile', {
+      const res = await axios.get('/api/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const profile = res.data;
