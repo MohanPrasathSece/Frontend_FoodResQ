@@ -20,7 +20,6 @@ export default function Help() {
 
   const API_URL = process.env.REACT_APP_API_URL || 'https://backendfoodresq-production.up.railway.app';
 const handleSubmit = async e => {
-    toast({ title: 'Debug', description: `API: ${API_URL}/api/help`, status: 'info', duration: 4000 });
     e.preventDefault();
     try {
       // Use full API URL to bypass CRA proxy
