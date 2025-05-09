@@ -239,9 +239,10 @@ export default function VolunteerDashboard() {
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>
                     </CardBody>
-                    <CardFooter justify="space-between">
-                      <Button colorScheme="blue" onClick={() => handlePickupRequest(donation)}>Claim</Button>
+                    <CardFooter flexDirection={{ base: 'column', md: 'row' }} justify={{ base: 'center', md: 'flex-end' }} gap={2} w="100%">
+                      <Button w={{ base: '100%', md: 'auto' }} colorScheme="blue" onClick={() => handlePickupRequest(donation)}>Claim</Button>
                       <Button
+                        w={{ base: '100%', md: 'auto' }}
                         as="a"
                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${donation.pickupAddress.street}, ${donation.pickupAddress.city}, ${donation.pickupAddress.state} ${donation.pickupAddress.zipCode}`)}`}
                         target="_blank"
@@ -249,7 +250,7 @@ export default function VolunteerDashboard() {
                         size="sm"
                         variant="outline"
                       >
-                        View on Map
+                        Map
                       </Button>
                     </CardFooter>
                   </Card>
@@ -315,9 +316,9 @@ export default function VolunteerDashboard() {
                       <Text fontSize="sm" color="gray.700"><strong>Expires On:</strong> {new Date(donation.expirationDate).toLocaleString()}</Text>
                       <Text fontSize="sm" color="gray.700"><strong>Pickup Address:</strong> {donation.pickupAddress?.street}, {donation.pickupAddress?.city}, {donation.pickupAddress?.state} {donation.pickupAddress?.zipCode}</Text>
                     </CardBody>
-                    <CardFooter>
-                      <Button colorScheme="green" mr={2} onClick={() => handleDelivered(donation._id)}>Delivered</Button>
-                      <Button bg="red.500" color="white" _hover={{ bg: 'red.600' }} onClick={() => handleNotDelivered(donation._id)}>Not Delivered</Button>
+                    <CardFooter flexDirection={{ base: 'column', md: 'row' }} justify={{ base: 'center', md: 'flex-end' }} gap={2} w="100%">
+                      <Button w={{ base: '100%', md: 'auto' }} colorScheme="green" onClick={() => handleDelivered(donation._id)}>Delivered</Button>
+                      <Button w={{ base: '100%', md: 'auto' }} bg="red.500" color="white" _hover={{ bg: 'red.600' }} onClick={() => handleNotDelivered(donation._id)}>Not Delivered</Button>
                     </CardFooter>
                   </Card>
                 ))}
