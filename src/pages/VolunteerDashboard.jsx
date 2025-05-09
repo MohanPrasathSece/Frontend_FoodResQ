@@ -327,7 +327,7 @@ export default function VolunteerDashboard() {
                     </CardBody>
                     <CardFooter>
                       <Button colorScheme="green" mr={2} onClick={() => handleDelivered(donation._id)}>Delivered</Button>
-                      <Button colorScheme="red" variant="solid" onClick={() => handleNotDelivered(donation._id)}>Not Delivered</Button>
+                      <Button bg="red.500" color="white" _hover={{ bg: 'red.600' }} onClick={() => handleNotDelivered(donation._id)}>Not Delivered</Button>
                     </CardFooter>
                   </Card>
                 ))}
