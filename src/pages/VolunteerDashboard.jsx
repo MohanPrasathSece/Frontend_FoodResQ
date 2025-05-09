@@ -172,13 +172,25 @@ export default function VolunteerDashboard() {
 
   return (
     <Box
-      bgImage="url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')"
-      bgSize="cover"
-      bgPosition="center"
-      // removed brightness filter to keep content colors vivid
-      minH="100vh"
-      color={textColor}
+      position="relative"
       py={{ base: 4, md: 10 }}
+      px={{ base: 2, md: 8 }}
+      minH="100vh"
+      width="100%"
+      color={textColor}
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        bgImage: `url('https://1.bp.blogspot.com/-hGztsaeIFhY/Wi046IYRhwI/AAAAAAAAAJ0/fkZLk1ZSqCcBYLbaWy8WUGzrLlOlOXFgQCPcBGAYYCw/s1600/DSC_0097.JPG')`,
+        bgSize: 'cover',
+        bgPosition: 'center',
+        opacity: 0.2,
+        zIndex: 0,
+      }}
     >
       <Container maxW={{ base: 'container.sm', md: '6xl' }} px={{ base: 2, md: 4 }} mx="auto" position="relative" zIndex={1}>
         <Stack spacing={8}>
