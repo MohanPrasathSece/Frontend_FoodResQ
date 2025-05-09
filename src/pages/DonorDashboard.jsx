@@ -29,7 +29,6 @@ import {
   Skeleton
 } from '@chakra-ui/react';
 import axios from 'axios';
-import { API_BASE_URL } from '../config';
 import { useAuth } from '../contexts/AuthContext';
 import { useColorModeValue } from '@chakra-ui/react';
 
@@ -71,7 +70,7 @@ export default function DonorDashboard() {
     if (cache) setDonations(JSON.parse(cache));
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`${API_BASE_URL}/api/donations/my-donations`, { headers: { Authorization: `Bearer ${token}` } });
+      const response = await axios.get('/api/donations/my-donations', { headers: { Authorization: `Bearer ${token}` } });
       setDonations(response.data);
       // Cache minimal donation metadata only
       try {
@@ -127,12 +126,12 @@ export default function DonorDashboard() {
       form.append('pickupAddress[zipCode]', formData.pickupAddress.zipCode);
       if (formData.image) form.append('image', formData.image);
       if (editingDonation) {
-        await axios.put(`${API_BASE_URL}/api/donations/${editingDonation._id}`, form, {
+        await axios.put(`/api/donations/${editingDonation._id}`, form, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         toast({ title: 'Success', description: 'Donation updated.', status: 'success', duration: 3000, isClosable: true });
       } else {
-        await axios.post(`${API_BASE_URL}/api/donations`, form, {
+        await axios.post('/api/donations', form, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         toast({ title: 'Success', description: 'Donation posted successfully', status: 'success', duration: 3000, isClosable: true });
@@ -170,7 +169,7 @@ export default function DonorDashboard() {
     if (!window.confirm('Are you sure you want to delete this donation?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`${API_BASE_URL}/api/donations/${id}`, {
+      await axios.delete(`/api/donations/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast({ title: 'Deleted', description: 'Donation deleted.', status: 'info', duration: 3000, isClosable: true });
@@ -234,7 +233,7 @@ export default function DonorDashboard() {
                             src={
                               donation.imageUrl.startsWith('data:')
                                 ? donation.imageUrl
-                                : `${API_BASE_URL}${donation.imageUrl}`
+                                : `http://localhost:5000${donation.imageUrl}`
                             }
                             alt={donation.foodName}
                             objectFit="cover"
