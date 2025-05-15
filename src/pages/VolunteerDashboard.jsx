@@ -185,7 +185,7 @@ export default function VolunteerDashboard() {
           <Box p={{ base: 2, md: 4 }}>
             <Box bg={containerBg} p={{ base: 2, md: 4 }} borderRadius="md" boxShadow="md" mb={5} textAlign="center">
               <Heading size={{ base: 'md', md: 'lg' }}>
-                Find Food <Badge ml={2} colorScheme="blue">{availableDonations.length}</Badge>
+                Available Donations <Badge ml={2} colorScheme="blue">{availableDonations.length}</Badge>
               </Heading>
             </Box>
             {availableDonations.length > 0 ? (
